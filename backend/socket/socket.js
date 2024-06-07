@@ -9,8 +9,8 @@ const server=http.createServer(app);
 const io=new Server(server,{
     cors:{
         // origin:"http://13.201.133.79:3000",
-        origin:"http://localhost:3000",
-
+        // origin:"http://localhost:3000",
+        origin:"https://new-thread-proj-1.onrender.com",
         methods:["GET","POST"],
     },
 })   
