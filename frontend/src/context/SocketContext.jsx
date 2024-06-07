@@ -17,7 +17,8 @@ const [onlineUsers,setOnlineUsers]=useState([])
 const user=useRecoilValue(userAtom);
 
 useEffect(()=>{
-   const socket=io("http://localhost:5000",{
+    // const socket=io("http://localhost:5000",{
+   const socket=io("https://new-thread-proj.onrender.com",{
     query:{
         userId:user?._id, 
     },
