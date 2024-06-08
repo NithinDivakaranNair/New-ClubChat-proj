@@ -37,8 +37,10 @@ app.use(cookieParser());
 
 
 // Routes
-app.use("/api/users", userRouters);
-app.use("/api/posts", postRouters);        
+const apiBaseUrl = 'https://new-thread-proj.onrender.com';
+
+app.use(`${apiBaseUrl}/api/users`, userRouters);
+app.use(`${apiBaseUrl}/api/posts`, postRouters);        
 app.use("/api/messages", messageRoutes);
 
 
