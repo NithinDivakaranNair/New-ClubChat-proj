@@ -37,10 +37,12 @@ import {
 
      const showToast=useShowToast()
 
+   const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
     const handleLogin=async()=>{
       setLoading(true)
       try{
-      const res=await fetch("/api/users/login",{
+      const res=await fetch(`${apiBaseUrl}/api/user/login`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
