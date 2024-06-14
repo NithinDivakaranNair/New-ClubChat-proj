@@ -6,14 +6,21 @@ import Conversation from '../models/conversationModel.js';
 
 const app=express()
 const server=http.createServer(app);
-const io=new Server(server,{
-    cors:{
-        // origin:"http://13.201.133.79:3000",
-        // origin:"http://localhost:3000",
-        origin:"https://new-thread-proj-1.onrender.com/api",
-        methods:["GET","POST"],
-    },
-})   
+// const io=new Server(server,{
+//     cors:{
+//         // origin:"http://13.201.133.79:3000",
+//         // origin:"http://localhost:3000",
+//         origin:"https://new-thread-proj-1.onrender.com/api",
+//         methods:["GET","POST"],
+//     },
+// })   
+
+const io = new Server(server, {
+    cors: {
+        origin: true, // Allow any origin
+        methods: ["GET", "POST"], // Specify the allowed HTTP methods
+    },
+});
 
 export const getRecipientSocketId=(recipientId)=>{
     return userSocketMap[recipientId];   
