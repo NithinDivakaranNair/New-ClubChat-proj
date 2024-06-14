@@ -4,6 +4,9 @@ import express from "express";
 import Message from '../models/messageModel.js';
 import Conversation from '../models/conversationModel.js';
 
+import cors from 'cors';
+
+
 const app=express()
 const server=http.createServer(app);
 // const io=new Server(server,{
@@ -21,6 +24,12 @@ const io = new Server(server, {
         methods: ["GET", "POST"], // Specify the allowed HTTP methods
     },
 });
+
+app.use(cors({
+    origin: true, // Allow any origin
+    methods: ['GET', 'POST'], // Specify the allowed HTTP methods
+  }));
+
 
 export const getRecipientSocketId=(recipientId)=>{
     return userSocketMap[recipientId];   
