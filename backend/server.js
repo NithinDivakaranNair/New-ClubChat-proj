@@ -41,6 +41,9 @@ app.use("/api/users", userRouters);
 app.use("/api/posts", postRouters);        
 app.use("/api/messages", messageRoutes);
 
+app.get('/backend', (req, res) => {
+    res.send('It\'s backend');
+  });
 
 
 // app.listen(PORT, () => console.log(`Server started at http://localhost:${PORT}`))
