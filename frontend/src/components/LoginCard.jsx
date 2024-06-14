@@ -42,7 +42,7 @@ import {
     const handleLogin=async()=>{
       setLoading(true)
       try{
-      const res=await fetch(`${apiBaseUrl}/api/user/login`,{
+      const res=await fetch(`${apiBaseUrl}/api/users/login`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
