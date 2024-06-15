@@ -38,12 +38,13 @@ const handleLikeAndUnlike=async()=>{
 	setIsliking(true);
 
 	try{
-		const res=await fetch(`${apiBaseUrl}/api/posts/like/` + post._id,{
-          method:"PUT",
-		  headers:{
-			"Content-Type":"application/json",
-		  },
-		});
+		const res = await fetch(`${apiBaseUrl}/api/posts/like/${post._id}`, {
+			method: "PUT",
+			headers: {
+			  "Content-Type": "application/json"
+			}
+		  });
+		  
 		const data=await res.json()
 		if(data.error)return showToast("Error",data.error,"error");
 		if(!liked){
@@ -84,13 +85,14 @@ const handleLikeAndUnlike=async()=>{
        setIsReplying(true)
    
 	   try{
-	    const res=await fetch(`${apiBaseUrl}/api/posts/reply/` + post._id,{
-		method:"PUT",
-		headers:{
-			"Content-Type":"application/json",
-		},
-		body:JSON.stringify({text:reply})
-	})
+		const res = await fetch(`${apiBaseUrl}/api/posts/reply/${post._id}`, {
+			method: "PUT",
+			headers: {
+			  "Content-Type": "application/json",
+			},
+			body: JSON.stringify({ text: reply }),
+		  });
+		  
 	const data=await res.json();
 	if(data.error)return  showToast("Error",data.error,"error")
    const updatedPosts=posts.map((p)=>{
