@@ -9,10 +9,12 @@ const LogoutButton = () => {
     const showToast=useShowToast();
     const setUser=useSetRecoilState(userAtom)
    
+    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
     const handleLogout=async()=>{
         try{
      //fetch
-     const res=await fetch("/api/users/logout",{
+     const res=await fetch(`${apiBaseUrl}/api/users/logout`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",

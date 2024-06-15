@@ -21,6 +21,8 @@ const ChatePage = () => {
 
  const {socket,onlineUsers}=useSocket();
 
+ 
+
  useEffect(()=>{
   socket?.on("messagesSeen",({conversationId})=>{
 setConversations((prev)=>{
@@ -34,11 +36,14 @@ return  updatedConversations;
 })
   })
  },[socket,setConversations])
+
+ 
+  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
  
  useEffect(()=>{  
  const getConversations=async()=>{
  try{
-   const res=await fetch("api/messages/conversations");
+   const res=await fetch(`${apiBaseUrl}/api/messages/conversations`);
    const data=await res.json()
    if(data.error){
      showToast("Error",data.error,"error");
@@ -63,7 +68,7 @@ getConversations()
    e.preventDefault();
    setSearchingUser(true)
    try{
-     const res=await fetch(`/api/users/profile/${searchText}`);
+     const res=await fetch(`${apiBaseUrl}/api/users/profile/${searchText}`);
      const searchedUser=await res.json()
      if(searchedUser.error){
        showToast("Error",searchedUser.error,"error")

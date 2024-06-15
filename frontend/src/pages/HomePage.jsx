@@ -14,12 +14,17 @@ const  HomePage = () => {
   const [loading,setLoading]=useState(false);
   const showToast=useShowToast();
 
+  
+  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
+
+
   useEffect(()=>{
     const getFeedPosts=async()=>{
     setLoading(true);
     setPosts([]);
    try{
-    const res=await fetch("/api/posts/feed");
+    const res=await fetch(`${apiBaseUrl}/api/posts/feed`);
     const data=await res.json();
     if(data.error){
       showToast("Error",data.error,"error");

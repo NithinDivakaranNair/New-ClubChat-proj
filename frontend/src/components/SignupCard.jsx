@@ -36,10 +36,12 @@ export default function SignupCard() {
 
   const showToast=useShowToast();
 
+  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
 
   const handleSignup=async()=>{
     try{
-      const res=await fetch("/api/users/signup",{
+      const res=await fetch(`${apiBaseUrl}/api/users/signup`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",

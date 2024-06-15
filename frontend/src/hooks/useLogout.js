@@ -2,6 +2,10 @@ import { useSetRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import useShowToast from "./useShowToast";
 
+
+const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
+
 const useLogout = () => {
     const setUser=useSetRecoilState(userAtom);
     const showToast=useShowToast();
@@ -9,7 +13,7 @@ const useLogout = () => {
     const logout=async()=>{
         try{
      //fetch
-     const res=await fetch("/api/users/logout",{
+     const res=await fetch(`${apiBaseUrl}/api/users/logout`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",

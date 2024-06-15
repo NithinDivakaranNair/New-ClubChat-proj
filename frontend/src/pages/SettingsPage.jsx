@@ -9,10 +9,12 @@ const SettingsPage = () => {
 const showToast=useShowToast();
 const logout =useLogout();
 
+const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
   const freezeAccount=async()=>{
    if(!window.confirm("Are you sure you want to freeze your account?")) return;
     try{
-      const res=await fetch("/api/users/freeze",{
+      const res=await fetch(`${apiBaseUrl}/api/users/freeze`,{
         method:"PUT",
         headers:{"Content-Type":"application/json"},
       });

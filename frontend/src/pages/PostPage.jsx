@@ -48,11 +48,13 @@ const PostPage = () => {
 
   const currentPost=posts[0];
 
+  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
   useEffect(()=>{
     const getPost=async()=>{
       setPosts([]);
       try{
-        const res=await fetch(`/api/posts/${pid}`);
+        const res=await fetch(`${apiBaseUrl}/api/posts/${pid}`);
         const data=await res.json();
         if(data.error){
           showToast("Error",data.error,"error");
@@ -72,7 +74,7 @@ const PostPage = () => {
 			if (!window.confirm("Are you sure you want to delete this post?")) return;
 
 			// const res = await fetch(`/api/posts/${post._id}`, {
-        const res = await fetch(`/api/posts/${currentPost._id}`, {
+        const res = await fetch(`${apiBaseUrl}/api/posts/${currentPost._id}`, {
 
 				method: "DELETE",
 			});

@@ -29,6 +29,8 @@ const MessageInput = ({setMessages}) => {
   const{handleImageChange,imgUrl,setImgUrl}=usePreviewImg();
   const[isSending,setIsSending]=useState(false);
    
+  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
 
 //handleSendMessage
   const handleSendMessage=async(e)=>{
@@ -38,7 +40,7 @@ const MessageInput = ({setMessages}) => {
     setIsSending(true);
 
     try{
-      const res=await fetch("/api/messages",{
+      const res=await fetch(`${apiBaseUrl}/api/messages`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",

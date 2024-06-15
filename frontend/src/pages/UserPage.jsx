@@ -20,6 +20,10 @@ const UserPage = () => {
     const[posts,setPosts]=useRecoilState(postsAtom)
    const[fetchingPosts,setFetchingPosts]=useState(true)
 
+   const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
+
+
   useEffect(()=>{
 //Getting User
  //Getting Posts   
@@ -29,7 +33,7 @@ const UserPage = () => {
 
       setFetchingPosts(true);
    try{
-    const res=await fetch(`/api/posts/user/${username}`);
+    const res=await fetch(`${apiBaseUrl}/api/posts/user/${username}`);
     const data=await res.json();
     setPosts(data)
       }catch(error){

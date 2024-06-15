@@ -24,6 +24,9 @@ import messageSound from '../assets/sounds/mixkit-long-pop-2358.wav';
  const setConversations=useSetRecoilState(conversationsAtom)
  const messageEndRef=useRef(null);
 
+ const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
+
  //socket used for state management
  useEffect(()=>{
   socket.on("newMessage",(message)=>{
@@ -93,7 +96,7 @@ useEffect(()=>{
    setMessages([])
    try{
      if(selectedConversation.mock)return;
-   const res=await fetch(`/api/messages/${selectedConversation.userId}`)
+   const res=await fetch(`${apiBaseUrl}/api/messages/${selectedConversation.userId}`)
    const data=await res.json()
    if(data.error){
      showToast("Error",data.error,"error")

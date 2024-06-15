@@ -41,6 +41,8 @@ const CreatePost = () => {
   const {username}=useParams();
 
 
+  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
 const handleTextChange=(e)=>{
     const inputText=e.target.value;
    
@@ -58,7 +60,7 @@ const handleTextChange=(e)=>{
    const handleCreatePost=async()=>{
     try{
       setLoading(true)
-    const res=await fetch("/api/posts/create",{
+    const res=await fetch(`${apiBaseUrl}/api/posts/create`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

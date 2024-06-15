@@ -26,6 +26,8 @@ const showToast=useShowToast();
 // COMMENT SECTION
 const { isOpen, onOpen, onClose } = useDisclosure();
 
+const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
 
 // "like and unliike"  functionaly
 const handleLikeAndUnlike=async()=>{
@@ -36,7 +38,7 @@ const handleLikeAndUnlike=async()=>{
 	setIsliking(true);
 
 	try{
-		const res=await fetch("/api/posts/like/" + post._id,{
+		const res=await fetch(`${apiBaseUrl}/api/posts/like/` + post._id,{
           method:"PUT",
 		  headers:{
 			"Content-Type":"application/json",
@@ -82,7 +84,7 @@ const handleLikeAndUnlike=async()=>{
        setIsReplying(true)
    
 	   try{
-	    const res=await fetch("/api/posts/reply/" + post._id,{
+	    const res=await fetch(`${apiBaseUrl}/api/posts/reply/` + post._id,{
 		method:"PUT",
 		headers:{
 			"Content-Type":"application/json",

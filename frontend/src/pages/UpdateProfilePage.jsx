@@ -34,12 +34,15 @@ export default function UpdateProfilePage() {
     const ShowToast=useShowToast()
     const {handleImageChange,imgUrl}=usePreviewImg();
 
+    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
+
     const handleSubmit = async (e) => {
       e.preventDefault();
           if(updating)return;
              setUpdating(true)
       try {
-         const res = await fetch(`/api/users/update/${user._id}`, {
+         const res = await fetch(`${apiBaseUrl}/api/users/update/${user._id}`, {
               method: "PUT",
               headers: {
                   "Content-Type": "application/json",

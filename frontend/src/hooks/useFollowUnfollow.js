@@ -9,6 +9,8 @@ const useFollowUnfollow = (user) => {
     const [updating,setUpdating]=useState(false)
     const showToast=useShowToast();
     
+    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+
 const handlefollowUnfollow=async()=>{
 
     if(!currentUser){
@@ -20,7 +22,7 @@ const handlefollowUnfollow=async()=>{
     setUpdating(true)
 
     try{
-    const res =await fetch(`/api/users/follow/${user._id}`,{
+    const res =await fetch(`${apiBaseUrl}/api/users/follow/${user._id}`,{
     method:"POST",
      headers:{
          "Content-Type":"application/json",
