@@ -5,7 +5,7 @@ import useShowToast from './useShowToast';
 
 const useFollowUnfollow = (user) => {
     const currentUser=useRecoilValue(userAtom)
-    const [following,setFollowing]=useState(user.followers.includes(currentUser?._id));
+    const [following,setFollowing]=useState(user?.followers?.includes(currentUser?._id));
     const [updating,setUpdating]=useState(false)
     const showToast=useShowToast();
     
