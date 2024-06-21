@@ -18,7 +18,7 @@ useEffect(()=>{
 const getSuggestedUsers=async()=>{
   setLoading(true)
   try{  
-    const res=await fetch(`api/users/suggested`);
+    const res=await fetch(`${apiBaseUrl}/api/users/suggested`);
     const data=await res.json();
     console.log(data)
     if(data.error){
