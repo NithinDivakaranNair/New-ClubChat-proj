@@ -9,12 +9,20 @@ import { createPost,
           getUserPosts } from "../controllers/postController.js";
 import protectRoute from "../middlewares/protectRoute.js";
 
-router.get("/feed",protectRoute, getFeedPosts);
-router.post('/create',protectRoute, createPost)
+// router.get("/feed",protectRoute, getFeedPosts);
+// router.post('/create',protectRoute, createPost)
+// router.get("/:id",getPost)
+// router.get("/user/:username",getUserPosts);
+// router.delete("/:id",protectRoute,deletePost)
+// router.put("/like/:id",protectRoute,likeUnlikePost)
+// router.put("/reply/:id",protectRoute,replyToPost)
+
+router.get("/feed",getFeedPosts);
+router.post('/create',createPost)
 router.get("/:id",getPost)
 router.get("/user/:username",getUserPosts);
-router.delete("/:id",protectRoute,deletePost)
-router.put("/like/:id",protectRoute,likeUnlikePost)
-router.put("/reply/:id",protectRoute,replyToPost)
+router.delete("/:id",deletePost)
+router.put("/like/:id",likeUnlikePost)
+router.put("/reply/:id",replyToPost)
 
 export default router;
