@@ -10,7 +10,15 @@ const SuggestedUsers = () => {
     const[suggestedUsers,setSuggestedUsers]=useState([]);
     const showToast=useShowToast();
 
-    // const apiBaseUrl = 'https://localhost:5000'
+
+    
+  const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+  const token = storedUser ? storedUser.Gt : null;
+
+
+
+
+    // const apiBaseUrl = 'http://localhost:5000'
     const apiBaseUrl = 'https://new-thread-proj.onrender.com'
 
 
@@ -18,9 +26,15 @@ useEffect(()=>{
 const getSuggestedUsers=async()=>{
   setLoading(true)
   try{  
-    const res=await fetch(`${apiBaseUrl}/api/users/suggested`);
+    const res=await fetch(`${apiBaseUrl}/api/users/suggested`,{
+      headers: {
+       
+        'Authorization': `Bearer ${token}`
+       
+      }
+    });
     const data=await res.json();
-    console.log(data)
+    console.log("aaaaaa",data)
     if(data.error){
       showToast("Error",data.error,"error")
       return;

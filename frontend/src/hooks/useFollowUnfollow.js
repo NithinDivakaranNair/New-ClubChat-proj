@@ -5,11 +5,16 @@ import useShowToast from './useShowToast';
 
 const useFollowUnfollow = (user) => {
     const currentUser=useRecoilValue(userAtom)
-    const [following,setFollowing]=useState(user?.followers?.includes(currentUser?._id));
+    const [following,setFollowing]=useState(user.followers.includes(currentUser?._id));
     const [updating,setUpdating]=useState(false)
     const showToast=useShowToast();
+
+    const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+    const token = storedUser ? storedUser.Gt : null;
     
     const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+    // const apiBaseUrl = 'http://localhost:5000'
+
 
 const handlefollowUnfollow=async()=>{
 
@@ -26,6 +31,7 @@ const handlefollowUnfollow=async()=>{
     method:"POST",
      headers:{
          "Content-Type":"application/json",
+         'Authorization': `Bearer ${token}`
         }
      })
    const data=await res.json()
@@ -35,10 +41,10 @@ const handlefollowUnfollow=async()=>{
   }
 
  if(following){
-    showToast("Success",`Unfollowed ${user.name}`,"success");
+    showToast("Success",`Followed ${user.name}`,"success");
      user.followers.pop();//simulate removing from followers
  }else{
-    showToast("Success",`Followed ${user.name}`,"success");
+    showToast("Success",`Unfollowed ${user.name}`,"success");
     user.followers.push(currentUser?._id);//simulate adding from followers
    }
 

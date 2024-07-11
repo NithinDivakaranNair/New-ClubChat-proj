@@ -38,7 +38,7 @@ import {
      const showToast=useShowToast()
 
    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
-  // const apiBaseUrl = 'https://localhost:5000'
+  //  const apiBaseUrl = 'http://localhost:5000'
 
     const handleLogin=async()=>{
       setLoading(true)
@@ -51,7 +51,9 @@ import {
         body:JSON.stringify(inputs)
       })
 
+
       const data=await res.json();
+      console.log("data",data)
       if(data.error){
         showToast("Error",data.error,"error");
         return;

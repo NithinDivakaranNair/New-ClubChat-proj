@@ -26,8 +26,11 @@ const showToast=useShowToast();
 // COMMENT SECTION
 const { isOpen, onOpen, onClose } = useDisclosure();
 
-const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+const token = storedUser ? storedUser.Gt : null;
 
+const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+// const apiBaseUrl = 'http://localhost:5000'
 
 // "like and unliike"  functionaly
 const handleLikeAndUnlike=async()=>{
@@ -41,7 +44,9 @@ const handleLikeAndUnlike=async()=>{
 		const res = await fetch(`${apiBaseUrl}/api/posts/like/${post._id}`, {
 			method: "PUT",
 			headers: {
-			  "Content-Type": "application/json"
+			  "Content-Type": "application/json",
+			  'Authorization': `Bearer ${token}`
+
 			}
 		  });
 		  
@@ -89,6 +94,8 @@ const handleLikeAndUnlike=async()=>{
 			method: "PUT",
 			headers: {
 			  "Content-Type": "application/json",
+			  'Authorization': `Bearer ${token}`
+
 			},
 			body: JSON.stringify({ text: reply }),
 		  });

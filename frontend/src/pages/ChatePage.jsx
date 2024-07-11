@@ -38,12 +38,28 @@ return  updatedConversations;
  },[socket,setConversations])
 
  
-  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
- 
+ const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+ const token = storedUser ? storedUser.Gt : null;
+
+   const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+  //  const apiBaseUrl = 'http://localhost:5000'
+
+   
+
+
+
  useEffect(()=>{  
  const getConversations=async()=>{
  try{
-   const res=await fetch(`${apiBaseUrl}/api/messages/conversations`);
+   const res=await fetch(`${apiBaseUrl}/api/messages/conversations`,
+    {
+      headers: {
+       
+        'Authorization': `Bearer ${token}`
+       
+      }
+    }
+   );
    const data=await res.json()
    if(data.error){
      showToast("Error",data.error,"error");

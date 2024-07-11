@@ -14,9 +14,15 @@ const  HomePage = () => {
   const [loading,setLoading]=useState(false);
   const showToast=useShowToast();
 
+
+
+  const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+  const token = storedUser ? storedUser.Gt : null;
+  
+ 
   
   const apiBaseUrl = 'https://new-thread-proj.onrender.com'
-  // const apiBaseUrl = 'https://localhost:5000'
+  // const apiBaseUrl = 'http://localhost:5000'
 
 
 
@@ -25,8 +31,15 @@ const  HomePage = () => {
     setLoading(true);
     setPosts([]);
    try{
-    const res=await fetch(`${apiBaseUrl}/api/posts/feed`);
+    const res=await fetch(`${apiBaseUrl}/api/posts/feed`,{
+      headers: {
+       
+        'Authorization': `Bearer ${token}`
+       
+      }
+    });
     const data=await res.json();
+
     if(data.error){
       showToast("Error",data.error,"error");
       return;

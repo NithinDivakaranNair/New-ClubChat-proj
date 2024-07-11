@@ -21,13 +21,13 @@ const server=http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: true, // Allow any origin
-        methods: ["GET", "POST"], // Specify the allowed HTTP methods
+        methods: ["GET", "POST", "PUT","DELETE"], // Specify the allowed HTTP methods
     },
 });
 
 app.use(cors({
     origin: true, // Allow any origin
-    methods: ['GET', 'POST'], // Specify the allowed HTTP methods
+    methods: ['GET', 'POST', 'PUT','DELETE'], // Specify the allowed HTTP methods
   }));
 
 

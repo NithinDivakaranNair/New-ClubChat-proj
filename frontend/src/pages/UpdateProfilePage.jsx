@@ -34,8 +34,11 @@ export default function UpdateProfilePage() {
     const ShowToast=useShowToast()
     const {handleImageChange,imgUrl}=usePreviewImg();
 
-    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
-
+    const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+    const token = storedUser ? storedUser.Gt : null;
+  
+      const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+      // const apiBaseUrl = 'http://localhost:5000'
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -46,6 +49,8 @@ export default function UpdateProfilePage() {
               method: "PUT",
               headers: {
                   "Content-Type": "application/json",
+                  'Authorization': `Bearer ${token}`
+
               },
               body: JSON.stringify({ ...inputs, profilePic: imgUrl }),
           });

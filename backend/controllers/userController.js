@@ -56,6 +56,7 @@ const signupUser = async (req, res) => {
 
 //loginUser
 const loginUser=async(req,res)=>{
+    
 try{
 const {username,password}=req.body
 const user=await User.findOne({username});
@@ -70,14 +71,16 @@ if(user.isFrozen){
 }
 
 
-generateTokenAndSetCookie(user._id,res)
+
+const Gt=generateTokenAndSetCookie(user._id,res)
 res.status(200).json({
     _id:user._id,
     name:user.name,
     email:user.email,
     username:user.username,
     bio:user.bio,
-    profilePic:user.profilePic
+    profilePic:user.profile,
+    Gt 
 
 })
 }catch(err){
@@ -244,7 +247,6 @@ const getSuggestedUsers= async(req,res)=>{
 const userId =req.user._id;
 
 const usersFollowedByYou=await User.findById(userId).select("following");
-
 const users=await User.aggregate([
     {$match:{_id:{$ne:userId}}},
     {$sample:{size:10}}
@@ -253,6 +255,7 @@ const filteredUsers=users.filter((user)=>!usersFollowedByYou.following.includes(
 const suggestedUsers=filteredUsers.slice(0,4)
 
 suggestedUsers.forEach((user) =>(user.password=null))
+
 
 res.status(200).json(suggestedUsers);
 

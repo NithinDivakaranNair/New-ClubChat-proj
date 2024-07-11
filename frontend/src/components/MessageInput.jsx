@@ -29,8 +29,11 @@ const MessageInput = ({setMessages}) => {
   const{handleImageChange,imgUrl,setImgUrl}=usePreviewImg();
   const[isSending,setIsSending]=useState(false);
    
-  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
-
+  const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+  const token = storedUser ? storedUser.Gt : null;
+ 
+    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+    // const apiBaseUrl = 'http://localhost:5000'
 
 //handleSendMessage
   const handleSendMessage=async(e)=>{
@@ -44,6 +47,8 @@ const MessageInput = ({setMessages}) => {
         method:"POST",
         headers:{
           "Content-Type":"application/json",
+          'Authorization': `Bearer ${token}`
+
          },
          body:JSON.stringify({
           message:messageText,

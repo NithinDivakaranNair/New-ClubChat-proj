@@ -41,7 +41,12 @@ const CreatePost = () => {
   const {username}=useParams();
 
 
-  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+  const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+  const token = storedUser ? storedUser.Gt : null;
+
+    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+    // const apiBaseUrl = 'http://localhost:5000'
+
 
 const handleTextChange=(e)=>{
     const inputText=e.target.value;
@@ -63,7 +68,9 @@ const handleTextChange=(e)=>{
     const res=await fetch(`${apiBaseUrl}/api/posts/create`,{
       method:"POST",
       headers:{
-        "Content-Type":"application/json"
+        "Content-Type":"application/json",
+        'Authorization': `Bearer ${token}`
+
       },
       body:JSON.stringify({postedBy:user._id,text:postText,img:imgUrl})
     })

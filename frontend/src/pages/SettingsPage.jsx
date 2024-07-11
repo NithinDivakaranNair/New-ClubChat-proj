@@ -9,14 +9,24 @@ const SettingsPage = () => {
 const showToast=useShowToast();
 const logout =useLogout();
 
+const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+const token = storedUser ? storedUser.Gt : null;
+
 const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+// const apiBaseUrl = 'http://localhost:5000'
+
+
 
   const freezeAccount=async()=>{
    if(!window.confirm("Are you sure you want to freeze your account?")) return;
     try{
       const res=await fetch(`${apiBaseUrl}/api/users/freeze`,{
         method:"PUT",
-        headers:{"Content-Type":"application/json"},
+        headers:{
+          "Content-Type":"application/json",
+          'Authorization': `Bearer ${token}`
+
+        },
       });
       const data=await res.json();
 

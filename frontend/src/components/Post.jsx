@@ -22,7 +22,12 @@ const Post = ({post, postedBy}) => {
   const[posts,setPosts]=useRecoilState(postsAtom);
   const navigate=useNavigate();
 
+  
+  const storedUser = JSON.parse(localStorage.getItem('user-threads'));
+  const token = storedUser ? storedUser.Gt : null;
+
     const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+    // const apiBaseUrl = 'http://localhost:5000'
 
   useEffect(()=>{
     const getUser=async()=>{
@@ -56,6 +61,11 @@ const Post = ({post, postedBy}) => {
 
 			const res = await fetch(`${apiBaseUrl}/api/posts/${post._id}`, {
 				method: "DELETE",
+        headers: {
+       
+          'Authorization': `Bearer ${token}`
+         
+        }
 			});
 			const data = await res.json();
 			if (data.error) {
