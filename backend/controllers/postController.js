@@ -2,6 +2,8 @@ import Post from '../models/postModels.js'
 import User from '../models/userModel.js'
 import  {v2 as cloudinary} from 'cloudinary'
 
+
+//Create POST
 const createPost=async(req,res)=>{
 try{
     const {postedBy,text}=req.body;
@@ -41,7 +43,7 @@ try{
 }
 
 
-//getpost
+//GetPost
 const getPost=async(req,res)=>{
 try{
  const post=await Post.findById(req.params.id) //"req.params.id"=selecting userId,"post"=that current user all posts
@@ -56,8 +58,8 @@ try{
 }
 }
 
-//deletepost
 
+//DeletePost
 const deletePost=async(req,res)=>{
     try{
 const post=await Post.findById(req.params.id) //current postId
@@ -85,7 +87,7 @@ res.status(200).json({message:"Post delete  successfully"})
 }
 }
 
-//likeUnlikePost
+//LikeUnlikePost
 const likeUnlikePost=async(req,res)=>{
 try{
     
@@ -114,7 +116,8 @@ try{
 }
 }
 
-//replyToPost
+
+//ReplyToPost
 const replyToPost=async(req,res)=>{
 try{
     const {text}=req.body;
@@ -158,8 +161,8 @@ try{
 }
 }
 
-//getFeedPosts
 
+//GetFeedPosts
 const getFeedPosts=async(req,res)=>{
   try{
     const userId=req.user._id;
@@ -180,8 +183,7 @@ const getFeedPosts=async(req,res)=>{
 }
 
 
-//getUserPosts
-
+//GetUserPosts
 const getUserPosts=async(req,res)=>{
   const {username}=req.params;
   try{

@@ -11,7 +11,6 @@ import {BsFillChatQuoteFill} from "react-icons/bs";
 import {MdOutlineSettings} from "react-icons/md";
 
 const Header = () => {
-console.log("hidsfjsdfj")
  const {colorMode,toggleColorMode}=useColorMode();
 
  const user=useRecoilValue(userAtom)

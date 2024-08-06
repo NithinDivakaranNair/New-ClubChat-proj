@@ -6,7 +6,7 @@ import generateTokenAndSetCookie from '../utils/helpers/generateTokenAndSetCooki
 import{v2 as cloudinary} from "cloudinary";
 import mongoose from 'mongoose';
 
-// signupUser
+// SignupUser
 const signupUser = async (req, res) => {
     try {
         const { name, email, username, password } = req.body;
@@ -54,7 +54,7 @@ const signupUser = async (req, res) => {
 };
 
 
-//loginUser
+//LoginUser
 const loginUser=async(req,res)=>{
     
 try{
@@ -92,7 +92,7 @@ res.status(200).json({
 
 
 
-//logoutUser
+//LogoutUser
 const logoutUser=async(req,res)=>{
    try{
    res.cookie('jwt',"",{maxAge:1});
@@ -103,7 +103,7 @@ const logoutUser=async(req,res)=>{
    }
 }
 
-///followUnFollowUser
+///FollowUnFollowUser
 const followUnFollowUser=async(req,res)=>{
 try{
 const {id}=req.params;
@@ -135,7 +135,7 @@ if(isFollowing){
 }
 
       
-//updateUserProfile
+//UpdateUserProfile
 const updateUser=async(req,res)=>{ 
          const {name,email,username,password,bio}=req.body;
         let{profilePic}=req.body;
@@ -197,7 +197,8 @@ const updateUser=async(req,res)=>{
 
 };
 
-//getUserProfile
+
+//GetUserProfile
 const getUserProfile=async(req,res)=>{
     // we will fetch user profile either with username  or userId
     //query is either username or userId
@@ -223,7 +224,7 @@ const getUserProfile=async(req,res)=>{
 
 }
 
-//freezeAccount
+//FreezeAccount
 const freezeAccount=async(req,res)=>{
     try{
        const user=await User.findById(req.user._id);
@@ -240,7 +241,7 @@ const freezeAccount=async(req,res)=>{
 }
 
 
-//getSuggestedUsers
+//GetSuggestedUsers
 const getSuggestedUsers= async(req,res)=>{
     try{
 //exclude the current user from suggested user array,exclude users that current user is already following

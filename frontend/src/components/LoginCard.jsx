@@ -74,7 +74,15 @@ import {
        >
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'} textAlign={'center'}>
+          <Heading fontSize="4xl" textAlign="center">
+      <Box as="span" color="blue.500">
+              Club
+            </Box>
+          <Box as="span" color="red.500">
+              Chat
+           </Box>
+          </Heading>
+            <Heading fontSize={'2xl'} textAlign={'center'}>
             Login
             </Heading>
             </Stack>

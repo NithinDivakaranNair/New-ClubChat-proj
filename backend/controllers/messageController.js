@@ -3,7 +3,7 @@ import Message from "../models/messageModel.js";
 import {  getRecipientSocketId, io } from "../socket/socket.js";
 import{v2 as cloudinary} from "cloudinary";
 
-
+///sendMessage
 const sendMessage=async(req,res)=>{
  
 
@@ -59,6 +59,8 @@ const sendMessage=async(req,res)=>{
 
 }
 
+
+//Get Message
 const getMessages=async(req,res)=>{
     const {otherUserId}=req.params;
     const userId=req.user._id;
@@ -82,6 +84,9 @@ const getMessages=async(req,res)=>{
 
 }
 
+
+
+//Get Coversation
 const getConversations=async(req,res)=>{
  const userId=req.user._id;
  try{
