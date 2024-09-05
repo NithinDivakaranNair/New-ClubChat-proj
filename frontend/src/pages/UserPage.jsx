@@ -20,7 +20,7 @@ const UserPage = () => {
     const[posts,setPosts]=useRecoilState(postsAtom)
    const[fetchingPosts,setFetchingPosts]=useState(true)
 
-   const apiBaseUrl = 'https://new-clubchat-proj.onrender.com'
+   const apiBaseUrl = 'https://new-thread-proj.onrender.com'
   // const apiBaseUrl = 'http://localhost:5000'
 
 

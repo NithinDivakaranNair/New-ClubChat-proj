@@ -3,7 +3,7 @@ import userAtom from "../atoms/userAtom";
 import useShowToast from "./useShowToast";
 
 
-const apiBaseUrl = 'https://new-clubchat-proj.onrender.com'
+const apiBaseUrl = 'https://new-thread-proj.onrender.com'
 
 
 const useLogout = () => {

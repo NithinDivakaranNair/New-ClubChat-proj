@@ -9,7 +9,7 @@ const LogoutButton = () => {
     const showToast=useShowToast();
     const setUser=useSetRecoilState(userAtom)
    
-    const apiBaseUrl = 'https://new-clubchat-proj.onrender.com'
+    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
 
     const handleLogout=async()=>{
         try{
