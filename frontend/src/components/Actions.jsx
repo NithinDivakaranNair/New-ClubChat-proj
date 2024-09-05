@@ -29,7 +29,7 @@ const { isOpen, onOpen, onClose } = useDisclosure();
 const storedUser = JSON.parse(localStorage.getItem('user-threads'));
 const token = storedUser ? storedUser.Gt : null;
 
-const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+const apiBaseUrl = 'https://new-clubchat-proj.onrender.com'
 // const apiBaseUrl = 'http://localhost:5000'
 
 // "like and unliike"  functionaly

@@ -18,7 +18,7 @@ const user=useRecoilValue(userAtom);
 
 useEffect(()=>{
     // const socket=io("http://localhost:5000",{
-   const socket=io("https://new-thread-proj.onrender.com",{
+   const socket=io("https://new-clubchat-proj.onrender.com",{
     query:{
         userId:user?._id, 
     },

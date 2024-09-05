@@ -22,7 +22,7 @@ export default defineConfig({
 //     proxy:{
 //       "/api":{
 //         // target:"http://localhost:5000",
-//         target:"https://new-thread-proj.onrender.com",
+//         target:"https://new-clubchat-proj.onrender.com",
 //         changeOrigin:true,
 //         secure:false,
 //       }, 

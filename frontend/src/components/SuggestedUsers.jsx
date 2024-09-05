@@ -19,7 +19,7 @@ const SuggestedUsers = () => {
 
 
     // const apiBaseUrl = 'http://localhost:5000'
-    const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+    const apiBaseUrl = 'https://new-clubchat-proj.onrender.com'
 
 
 useEffect(()=>{

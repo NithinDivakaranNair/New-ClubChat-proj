@@ -36,7 +36,7 @@ export default function SignupCard() {
 
   const showToast=useShowToast();
 
-  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+  const apiBaseUrl = 'https://new-clubchat-proj.onrender.com'
 
 
   const handleSignup=async()=>{

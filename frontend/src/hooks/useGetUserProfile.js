@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useShowToast from './useShowToast'
 
-const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+const apiBaseUrl = 'https://new-clubchat-proj.onrender.com'
 // const apiBaseUrl = 'http://localhost:5000'
 
 

@@ -21,7 +21,7 @@ const  HomePage = () => {
   
  
   
-  const apiBaseUrl = 'https://new-thread-proj.onrender.com'
+  const apiBaseUrl = 'https://new-clubchat-proj.onrender.com'
   // const apiBaseUrl = 'http://localhost:5000'
 
 
